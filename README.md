@@ -1,18 +1,29 @@
-*** https://cyberpulse-soc-sim.lovable.app ***
+# Welcome to your Lovable project
 
-# 🛡️ Interactive SOC Cyber Range
+This project was built with [Lovable](https://lovable.dev).
 
-An interactive blue-team simulation environment designed to train and test SOC Analyst Incident Response and Log Analysis skills.
+## Build with Lovable
 
-## 🚀 Features
-- **5 Real-World Incident Scenarios:** SSH Brute Force, SQL Injection, Exfiltration, and more.
-- **Log Analysis & Triaging:** Real-time feedback and hints system for evidence analysis.
-- **Performance Metrics:** Time tracking, submission attempts, and custom certification generation.
+Open your project in the [Lovable editor](https://lovable.dev) and keep building.
 
-## 🛠️ Tech Stack
-- **Frontend/Backend:** [Coloque as tecnologias que usou, ex: React, Node.js, Python, Tailwind, etc.]
-- **Deployment:** [Ex: Vercel, Local, Docker]
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
+- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
 
-## 📊 Sample Metrics
-- Average Completion Time: ~12 minutes
-- Scenarios Covered: 5/5 Active Threats Resolved
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
+```
+
+## Built with
+
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS

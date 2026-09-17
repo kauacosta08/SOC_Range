@@ -1,0 +1,193 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * CyberPulse SOC Range — design system
+ * Dark SOC operations aesthetic: deep slate-black surfaces, matrix green,
+ * alert orange and critical red. All colors in oklch, all tokens semantic.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-matrix: var(--matrix);
+  --color-matrix-foreground: var(--matrix-foreground);
+  --color-alert: var(--alert);
+  --color-alert-foreground: var(--alert-foreground);
+  --color-critical: var(--critical);
+  --color-critical-foreground: var(--critical-foreground);
+  --color-info: var(--info);
+  --color-terminal: var(--terminal);
+  --color-terminal-foreground: var(--terminal-foreground);
+  --color-grid: var(--grid);
+
+  --color-chart-1: var(--matrix);
+  --color-chart-2: var(--alert);
+  --color-chart-3: var(--critical);
+  --color-chart-4: var(--info);
+  --color-chart-5: var(--muted-foreground);
+
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --shadow-glow: 0 0 0 1px var(--matrix-dim), 0 0 24px -6px var(--matrix-dim);
+  --shadow-panel: 0 24px 60px -30px oklch(0 0 0 / 0.9);
+}
+
+:root {
+  --radius: 0.4rem;
+
+  --background: oklch(0.16 0.018 250);
+  --foreground: oklch(0.93 0.012 200);
+
+  --card: oklch(0.2 0.02 252);
+  --card-foreground: oklch(0.93 0.012 200);
+  --popover: oklch(0.21 0.02 252);
+  --popover-foreground: oklch(0.93 0.012 200);
+
+  --primary: oklch(0.8 0.22 145);
+  --primary-foreground: oklch(0.16 0.03 150);
+
+  --secondary: oklch(0.26 0.022 252);
+  --secondary-foreground: oklch(0.9 0.012 200);
+
+  --muted: oklch(0.24 0.02 252);
+  --muted-foreground: oklch(0.66 0.02 240);
+
+  --accent: oklch(0.28 0.03 252);
+  --accent-foreground: oklch(0.93 0.012 200);
+
+  --destructive: oklch(0.62 0.24 22);
+  --destructive-foreground: oklch(0.97 0.01 20);
+
+  --border: oklch(0.32 0.025 252);
+  --input: oklch(0.3 0.025 252);
+  --ring: oklch(0.8 0.22 145);
+
+  --matrix: oklch(0.84 0.23 145);
+  --matrix-dim: oklch(0.84 0.23 145 / 0.35);
+  --matrix-foreground: oklch(0.16 0.03 150);
+  --alert: oklch(0.79 0.17 62);
+  --alert-foreground: oklch(0.18 0.04 60);
+  --critical: oklch(0.63 0.25 22);
+  --critical-foreground: oklch(0.97 0.01 20);
+  --info: oklch(0.75 0.14 220);
+
+  --terminal: oklch(0.13 0.015 250);
+  --terminal-foreground: oklch(0.88 0.06 150);
+  --grid: oklch(1 0 0 / 0.04);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-image:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  ::selection {
+    background-color: var(--matrix-dim);
+  }
+}
+
+@utility panel {
+  background-color: color-mix(in oklab, var(--card) 82%, transparent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-panel);
+  backdrop-filter: blur(6px);
+}
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility scanlines {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0 3px,
+      oklch(0 0 0 / 0.18) 3px 4px
+    );
+    mix-blend-mode: multiply;
+  }
+}
+
+@utility glow-matrix {
+  box-shadow: var(--shadow-glow);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.82);
+  }
+}
+
+@utility live-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+@keyframes log-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility log-line {
+  animation: log-in 0.22s ease-out;
+}
