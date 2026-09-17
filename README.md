@@ -12,14 +12,3 @@ An interactive blue-team simulation environment designed to train and test SOC A
 ## Tech Stack
 - **Frontend/Framework:** React, TypeScript, Vite, Tailwind CSS
 - **Deployment:** Lovable Platform
-
-## Performance Indicators
-- **Average Completion Time:** ~12 minutes
-- **Threat Resolution:** 5/5 Active Scenarios Investigated
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
